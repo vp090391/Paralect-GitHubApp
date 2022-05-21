@@ -32,17 +32,10 @@ export default class Header extends React.Component {
 
                     <form onSubmit={this.handleSubmit}>
                             <input type="text"
-                                   className="input-field"
                                    placeholder="Enter GitHub username"
                                    value={this.state.username}
                                    onChange={this.handleChange}/>
                     </form>
-
-                    {/*<input type="text"
-                           className="input-field"
-                           placeholder="Enter GitHub username"
-                           value={this.state.username}
-                           onChange={this.onSearchChange}/>*/}
                 </div>
 
             </header>

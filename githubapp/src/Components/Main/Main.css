@@ -1,3 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 .main {
     background-color: #F9F9F9;
+    font-family: Inter, serif;
+}
+
+.user-info {
+    max-width: 290px;
+    height: auto;
+    padding: 40px 0 40px 56px;
+}
+
+.user-foto {
+    max-height: 280px;
+    max-width: 280px;
+    border-radius: 50%;
+}
+
+.user-name {
+    margin: 28px 0 12px 0;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 34px;
+}
+
+.user-login {
+    text-decoration: none;
+    color: #0064EB;
+}
+
+.user-login h1 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.user-follows {
+    font-weight: 400;
+    font-size: 16px;
+    margin: 25px 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+.user-follows div {
+    height: 24px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.user-follows div img {
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+}
+.user-follows div span{
+    margin-left: 5px;
+}
+.user-follows div:first-child {
+    margin-right: 12px;
 }
