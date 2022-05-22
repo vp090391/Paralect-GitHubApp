@@ -1,1 +1,10 @@
+.App {
+    max-width: 1366px;
+    margin: 0 auto;
+}
 
+.error {
+    text-align: center;
+    margin-top: 5%;
+    white-space: pre-line;
+}

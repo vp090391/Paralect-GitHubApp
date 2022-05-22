@@ -3,6 +3,8 @@
 .main {
     background-color: #F9F9F9;
     font-family: Inter, serif;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .user-info {
@@ -58,4 +60,42 @@
 }
 .user-follows div:first-child {
     margin-right: 12px;
+}
+
+.user-repos {
+    margin: 28px 56px 28px 86px;
+}
+
+.user-repos h3 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 42px;
+    margin: 0 0 29px 0;
+}
+
+.user-repo {
+    background-color: #FFFFFF;
+    min-height: 112px;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+}
+
+.user-repo a {
+    text-decoration: none;
+    color: #0064EB;
+}
+
+.user-repo a h2 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 16px 0;
+}
+
+.user-repo p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 0;
 }
