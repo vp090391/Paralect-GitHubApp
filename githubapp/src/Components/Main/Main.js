@@ -18,8 +18,7 @@ export default class Main extends React.Component {
         const {isLoading,
             username,
             noUserNotice,
-            userRepos,
-            noReposNotice } = this.props;
+            userRepos} = this.props;
 
         if (isLoading) {
             return (
@@ -50,7 +49,7 @@ export default class Main extends React.Component {
             return (
                 <main className='main'>
                     <div className='user-info'>
-                        <img className='user-foto' src={avatar_url} alt='user foto'/>
+                        <img className='user-image' src={avatar_url} alt='user foto'/>
                         <h2 className='user-name'>{name}</h2>
                         <a href={html_url}
                            className='user-login'

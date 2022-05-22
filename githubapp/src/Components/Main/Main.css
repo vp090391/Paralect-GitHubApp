@@ -43,7 +43,7 @@
     padding: 40px 0 40px 56px;
 }
 
-.user-foto {
+.user-image {
     max-height: 280px;
     max-width: 280px;
     border-radius: 50%;
@@ -72,7 +72,7 @@
     font-size: 16px;
     margin: 25px 0;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
 }
 .user-follows div {
     height: 24px;
@@ -128,4 +128,44 @@
     font-size: 16px;
     line-height: 19px;
     margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .user-info {
+        padding: 40px 0 40px 24px;
+    }
+    .user-repos {
+        margin: 28px 24px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .notice img {
+        margin-top: 24px;
+    }
+    .user-info {
+        margin: 0 auto;
+        padding: 24px 24px 0;
+    }
+    .user-repos {
+        margin: 0;
+        padding: 0 10px;
+        width: 90%;
+    }
+    .noRepo-notice {
+        position: initial;
+    }
+}
+@media screen and (max-width: 400px) {
+    .user-image {
+        width: 100%;
+        height: auto;
+    }
+    .user-repo {
+        padding: 10px;
+        word-break: break-word;
+    }
 }

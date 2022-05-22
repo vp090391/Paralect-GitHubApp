@@ -1,5 +1,6 @@
 .App {
     max-width: 1366px;
+    min-width: 320px;
     margin: 0 auto;
 }
 
