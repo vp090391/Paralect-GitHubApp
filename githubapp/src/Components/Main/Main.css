@@ -130,21 +130,10 @@
     margin: 0;
 }
 
-@media screen and (max-width: 800px) {
-    .user-info {
-        padding: 40px 0 40px 24px;
-    }
-    .user-repos {
-        margin: 28px 24px;
-    }
-}
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 850px) {
     .main {
         flex-direction: column;
         align-items: center;
-    }
-    .notice img {
-        margin-top: 24px;
     }
     .user-info {
         margin: 0 auto;
