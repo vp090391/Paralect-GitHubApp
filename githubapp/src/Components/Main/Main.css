@@ -4,7 +4,37 @@
     background-color: #F9F9F9;
     font-family: Inter, serif;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
+    min-height: 662px;
+}
+
+.notice {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.noRepo-notice {
+    margin: 0 auto;
+    top: 197px;
+    position: relative;
+    text-align: center;
+}
+
+.notice img {
+    width: 110px;
+    height: 110px;
+}
+
+.notice p {
+    margin: 24px 0 0 0;
+    color: #808080;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 31px;
 }
 
 .user-info {

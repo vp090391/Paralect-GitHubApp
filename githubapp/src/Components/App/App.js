@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import Loading from "../Loading/Loading";
 
 export default class App extends React.Component {
     constructor() {
@@ -21,7 +20,9 @@ export default class App extends React.Component {
                 followers: '',
                 following: '',
             },
+            noUserNotice: false,
             userRepos: [],
+            noReposNotice: false,
         }
     }
 
@@ -50,7 +51,18 @@ export default class App extends React.Component {
 
     getUserInfo = async () => {
         await fetch(`https://api.github.com/users/${this.state.username}`)
-            .then(res => res.json())
+            .then((res) => {
+                if (res.status === 404) {
+                    this.setState({
+                        noUserNotice: true,
+                        isLoading: false
+                    })
+                }
+                if (!res.ok && res.status !== 404) {
+                    throw new Error('Bad response')
+                }
+                return res.json()
+            })
             .then(
                 (result) => {
                     this.setState({
@@ -61,29 +73,41 @@ export default class App extends React.Component {
                             login: result.login,
                             followers: result.followers,
                             following: result.following,
-                        }
+                        },
                     });
                 },
-                (error) => this.onErrorHandle(error)
-            );
+            )
+            .catch((error) => this.onErrorHandle(error));
     };
 
     getUserRepos = async () => {
         await fetch(`https://api.github.com/users/${this.state.username}/repos`)
-            .then(res => res.json())
+            .then((res) => {
+                if (res.status === 404) {
+                    this.setState({
+                        noReposNotice: true,
+                        isLoading: false
+                    })
+                }
+                if (!res.ok && res.status !== 404) {
+                    throw new Error('Bad response')
+                }
+                return res.json()
+            })
             .then(
                 (result) => {
                     this.setState({
                         userRepos: result
                     });
                 },
-                (error) => this.onErrorHandle(error)
             )
+            .catch((error) => this.onErrorHandle(error));
     };
 
     onUsernameChange = (username) => {
         this.setState({
             isLoading: true,
+            noUserNotice: false,
             username
         });
     };
@@ -92,8 +116,11 @@ export default class App extends React.Component {
         const { isLoading,
             serverError,
             unknownError,
+            username,
             userInfo,
-            userRepos } = this.state;
+            noUserNotice,
+            userRepos,
+            noReposNotice } = this.state;
 
         if (serverError || unknownError) {
             return (
@@ -107,8 +134,11 @@ export default class App extends React.Component {
                 <div className="App">
                     <Header onUsernameChange={this.onUsernameChange}/>
                     <Main isLoading={isLoading}
+                          username={username}
                           userInfo = {userInfo}
-                          userRepos = {userRepos}/>
+                          noUserNotice={noUserNotice}
+                          userRepos = {userRepos}
+                          noReposNotice={noReposNotice}/>
                 </div>
             )
         }
