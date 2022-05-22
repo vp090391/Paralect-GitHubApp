@@ -6,6 +6,7 @@ import startToSearchUserImg from './assets/startToSearchUserImg.svg';
 import noUserNoticeImg from './assets/noUserNoticeImg.svg';
 import noReposNoticeImg from './assets/noReposNotice.svg';
 import Loading from "../Loading/Loading";
+import UserRepos from "./UserRepos/UserRepos";
 
 export default class Main extends React.Component {
     render() {
@@ -75,22 +76,8 @@ export default class Main extends React.Component {
                     {userRepos.length ?
                         <div className='user-repos'>
                             <h3>Repositories ({userRepos.length})</h3>
-                            <section>
-                                {userRepos.map((repo) => {
-                                    return (
-                                        <div className='user-repo'
-                                             key={repo.name}>
-                                            <a href={repo.html_url}
-                                               target='_blank'
-                                               rel="noopener noreferrer"
-                                               title='Open User repository'>
-                                                <h2>{repo.name}</h2>
-                                            </a>
-                                            <p>{repo.description}</p>
-                                        </div>
-                                    )
-                                })}
-                            </section>
+                            <UserRepos itemsPerPage={4}
+                                       userRepos={userRepos}/>
                         </div>
                         : <div className='noRepo-notice'>
                             <img src={noReposNoticeImg} alt='black box'/>
@@ -102,3 +89,4 @@ export default class Main extends React.Component {
         }
     }
 }
+

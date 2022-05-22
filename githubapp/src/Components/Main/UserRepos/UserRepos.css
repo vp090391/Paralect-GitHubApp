@@ -1,0 +1,43 @@
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.pagination {
+    height: 24px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.pagination ul {
+    margin: 0;
+}
+
+.page-link {
+    font-family: Inter, serif;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #808080;
+}
+
+.pages {
+    font-family: Inter, serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #808080;
+    margin-right: 16px;
+}
+
+*, ::after, ::before {
+     box-sizing: initial;
+}
+
+@media screen and (max-width: 500px) {
+    .pagination {
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+    }
+}
