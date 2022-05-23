@@ -23,7 +23,6 @@ export default class App extends React.Component {
             noUserNotice: false,
 
             userRepos: [],
-            noReposNotice: false,
         }
     }
 
@@ -48,6 +47,14 @@ export default class App extends React.Component {
             serverError: `Server is not available now.`,
             isLoading: false,
         })
+    };
+
+    onUsernameChange = (username) => {
+        this.setState({
+            isLoading: true,
+            noUserNotice: false,
+            username
+        });
     };
 
     getUserInfo = async () => {
@@ -86,7 +93,6 @@ export default class App extends React.Component {
             .then((res) => {
                 if (res.status === 404) {
                     this.setState({
-                        noReposNotice: true,
                         isLoading: false
                     })
                 }
@@ -105,14 +111,6 @@ export default class App extends React.Component {
             .catch((error) => this.onErrorHandle(error));
     };
 
-    onUsernameChange = (username) => {
-        this.setState({
-            isLoading: true,
-            noUserNotice: false,
-            username
-        });
-    };
-
     render() {
         const { isLoading,
             serverError,
@@ -120,8 +118,7 @@ export default class App extends React.Component {
             username,
             userInfo,
             noUserNotice,
-            userRepos,
-            noReposNotice } = this.state;
+            userRepos} = this.state;
 
         if (serverError || unknownError) {
             return (
@@ -138,8 +135,7 @@ export default class App extends React.Component {
                           username={username}
                           userInfo = {userInfo}
                           noUserNotice={noUserNotice}
-                          userRepos = {userRepos}
-                          noReposNotice={noReposNotice}/>
+                          userRepos = {userRepos}/>
                 </div>
             )
         }

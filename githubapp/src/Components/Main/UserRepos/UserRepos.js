@@ -50,13 +50,16 @@ export default function UserRepos({ itemsPerPage, userRepos }) {
         const newOffset = (event.selected * itemsPerPage) % items.length;
         setItemOffset(newOffset);
     };
+    const pages = `${itemOffset} - ${itemOffset + itemsPerPage > userRepos.length ? userRepos.length : itemOffset + itemsPerPage} of ${userRepos.length} items`;
 
     return (
         <>
-            <Items currentItems={currentItems} />
+            <div className='repos-list'>
+                <Items currentItems={currentItems} />
+            </div>
             <div className='pagination'>
                 <div className='pages'>
-                    {itemOffset} - {itemOffset + itemsPerPage} of {userRepos.length} items
+                    {pages}
                 </div>
                 <ReactPaginate
                     nextLabel=" >"
@@ -75,11 +78,10 @@ export default function UserRepos({ itemsPerPage, userRepos }) {
                     breakClassName="page-item"
                     breakLinkClassName="page-link"
                     containerClassName="pagination"
-                    activeClassName="active"
+                    activeClassName="page-item-active"
                     renderOnZeroPageCount={null}
                 />
             </div>
-
         </>
     );
 }
